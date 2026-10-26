@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: django
-        image: robot-django-api:latest # You will need to build & import this image into k3s
+        image: docker.io/library/robot-django-api:latest   # <-- Use the full name
+        imagePullPolicy: Never                             # <-- Tell K8s never to pull
         ports:
         - containerPort: 8000
 ---
