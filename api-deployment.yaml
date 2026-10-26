@@ -25,5 +25,5 @@ spec:
       volumes:                        # <-- Add this block
       - name: db-storage
         hostPath:
-          path: /home/aiml/robot-django-db/db.sqlite3
+          path: /home/aiml/robot-django-api/robot-django-db/db.sqlite3
           type: FileOrCreate
