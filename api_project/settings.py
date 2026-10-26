@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure--0stc60gw((%10l_h)f+ub60+g36^#$k^z1&_cpb0p8idz!t5_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'robot-django-api-service.staging.svc.cluster.local',  # For Flask app
+    '.ts.net', # For your Tailscale Ingress (optional but helpful)
+]
 
 
 # Application definition
