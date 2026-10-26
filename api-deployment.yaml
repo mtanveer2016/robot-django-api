@@ -15,19 +15,15 @@ spec:
     spec:
       containers:
       - name: django
-        image: docker.io/library/robot-django-api:latest   # <-- Use the full name
-        imagePullPolicy: Never                             # <-- Tell K8s never to pull
+        image: robot-django-api:v2
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: robot-django-api-service
-  namespace: staging
-spec:
-  selector:
-    app: robot-django-api
-  ports:
-  - port: 8000
-    targetPort: 8000
+        volumeMounts:                 # <-- Add this block
+        - name: db-storage
+          mountPath: /app/db.sqlite3  # <-- Save the DB file here
+      volumes:                        # <-- Add this block
+      - name: db-storage
+        hostPath:
+          path: /home/aiml/robot-django-db/db.sqlite3
+          type: FileOrCreate
