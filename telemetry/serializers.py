@@ -5,7 +5,7 @@ from .models import BatteryLog, TemperatureLog, DistanceLog, VisionLog
 
 class BatteryLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S") 
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)  # <-- ADD THIS
 
     class Meta:
         model = BatteryLog
@@ -15,7 +15,7 @@ class BatteryLogSerializer(serializers.ModelSerializer):
 
 class TemperatureLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S") 
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)  # <-- ADD THIS
 
     class Meta:
         model = TemperatureLog
@@ -24,7 +24,7 @@ class TemperatureLogSerializer(serializers.ModelSerializer):
 
 class DistanceLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S") 
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True) 
 
     class Meta:
         model = DistanceLog
@@ -33,7 +33,7 @@ class DistanceLogSerializer(serializers.ModelSerializer):
 
 class VisionLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
-    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S") 
+    created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S", read_only=True)  # <-- ADD THIS
 
     class Meta:
         model = VisionLog
