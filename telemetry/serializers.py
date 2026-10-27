@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import BatteryLog, TemperatureLog, DistanceLog, VisionLog
+
+
+
 class BatteryLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
     created_at = serializers.DateTimeField(format="%Y-%m-%d %H:%M:%S") 
@@ -7,6 +10,7 @@ class BatteryLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = BatteryLog
         fields = '__all__'
+        read_only_fields = ['created_at']  # <-- ADD THIS
 
 
 class TemperatureLogSerializer(serializers.ModelSerializer):
@@ -16,6 +20,7 @@ class TemperatureLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = TemperatureLog
         fields = '__all__'
+        read_only_fields = ['created_at']  # <-- ADD THIS
 
 class DistanceLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
@@ -24,6 +29,7 @@ class DistanceLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = DistanceLog
         fields = '__all__'
+        read_only_fields = ['created_at']  # <-- ADD THIS
 
 class VisionLogSerializer(serializers.ModelSerializer):
     # This formats the date into a nice string
@@ -32,3 +38,4 @@ class VisionLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = VisionLog
         fields = '__all__'
+        read_only_fields = ['created_at']  # <-- ADD THIS
